@@ -55,6 +55,10 @@ CREATE TABLE employees (
 );
 
 
+-------query to print the emplyoee details and  department details
+
+select employees.employee_id,employees.employee_name,employees.email,employees.designation,employees.salary,employees.department_id,employees.experience , departments.department_name from employees  Inner join departments on departments.department_id=employees.department_id
+
 
 
 
