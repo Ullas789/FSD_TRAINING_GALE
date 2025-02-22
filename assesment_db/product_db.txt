@@ -48,3 +48,6 @@ select * from product;
 --2. list all products And filter based on cat_id
 
 select p_name,cat_id from product where cat_id=20;
+
+-- 3.given a catgeory id ,list all the products
+select cat_id,p_name from product where cat_id=30;
