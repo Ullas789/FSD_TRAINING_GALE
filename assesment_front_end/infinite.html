@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content-after-loading="width=device-width, 
+                                 initial-scale=1.0"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: green;
+      }
+
+      .sub-block {
+        border: 1px solid #030303;
+        padding: 50px;
+        margin: 60px 0;
+        height: 200px;
+        width: 400px;
+        font-size: 60px;
+        text-align: center;
+
+        background-color: rgb(94, 183, 230);
+      }
+
+      #content-before-loading {
+        text-align: center;
+        display: none;
+        font-size: 16px;
+        margin-top: 40px;
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: green;
+      }
+
+      #navbar {
+        position: sticky;
+        top: 0;
+        overflow: hidden;
+        background-color: brown;
+      }
+
+      #navbar a {
+        float: center;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        font-size: 30px;
+      }
+    </style>
+    <title> </title>
+  </head>
+
+  <body>
+    <div id="navbar">
+      <a>Infinte Scroll</a>
+    </div>
+    <div id="content-before-loading"></div>
+    <script>
+      const before_loading = document.getElementById("content-before-loading");
+      before_loading.style.display = "block";
+      let c = 0;
+      function getInformation() {
+        setTimeout(() => {
+          for (let i = 0; i < 5; i++) {
+            const new_div = document.createElement("div");
+            new_div.className = "sub-block";
+            if (c == 0) new_div.innerHTML = ` ${i}`;
+            else new_div.innerHTML = ` ${c}${i}`;
+
+            before_loading.appendChild(new_div);
+          }
+          c++;
+        }, 10);
+      }
+
+      window.addEventListener("scroll", () => {
+        if (
+          document.documentElement.scrollTop + document.documentElement.clientHeight >= document.documentElement.scrollHeight
+        ) {
+          getInformation();
+        }
+      });
+      getInformation();
+    </script>
+  </body>
+</html>
