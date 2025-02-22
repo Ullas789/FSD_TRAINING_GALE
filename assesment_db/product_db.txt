@@ -39,3 +39,7 @@ product.p_id,product.p_name,category.cat_name,category.cat_id,category.parent_id
  FRom product INNER JOIN category 
  on category.cat_id=product.cat_id 
  INNER JOIN brand on brand.b_id=product.b_id;
+
+
+ -- 1.list all products
+select * from product;
