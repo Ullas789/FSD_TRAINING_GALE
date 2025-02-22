@@ -71,6 +71,11 @@ select employees.employee_id,employees.employee_name,employees.email,employees.d
 select employees.employee_id,employees.employee_name,employees.email,departments.department_name ,location.l_city || '_' || location.l_state|| '_'||location.l_country AS city_state_country from employees INNER join departments on departments.department_id=employees.department_id inner join location on location.l_id=departments.l_id
 
 
+-- list all the employess with contatc number
+select employees.employee_name,contact_details.number 
+from employees,contact_details 
+where contact_details.emp_id=employees.employee_id ;
+
 
 
 
