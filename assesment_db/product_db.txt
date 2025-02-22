@@ -43,3 +43,8 @@ product.p_id,product.p_name,category.cat_name,category.cat_id,category.parent_id
 
  -- 1.list all products
 select * from product;
+
+
+--2. list all products And filter based on cat_id
+
+select p_name,cat_id from product where cat_id=20;
