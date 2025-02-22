@@ -37,3 +37,7 @@ select  DISTINCT current_sem ,name from student;
 -- list all student belonging to sem 1
 select name from student where current_sem='1';
 
+
+-- get all marks of a student given usn for a particular subject
+select student.usn ,student.name,subject.sub_name ,marks.marks from student ,marks ,subject where student.student_id=marks.student_id and marks.sub_id=subject.sub_id and student.usn='vv003' and subject.sub_name='DS';
+
