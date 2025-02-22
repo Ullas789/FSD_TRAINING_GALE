@@ -1,0 +1,33 @@
+
+CREATE TABLE Semester (
+Sem_Id  INT PRIMARY KEY ,
+Sem SMALLINT 
+    
+);
+
+CREATE TABLE Student (
+    Student_Id  BIGSERIAL PRIMARY key ,
+    Usn varchar UNIQUE,
+    Name varchar,
+    Branch varchar,
+    Current_sem smallint
+    
+    );
+
+CREATE TABLE Subject(
+Sub_Id BIGINT PRIMARY KEY,
+sub_name VARCHAR
+);
+
+CREATE TABLE Marks(
+Student_Id BIGINT,
+Sub_Id BIGINT,
+Marks FLOAT,
+Sem_Id INT,
+FOREIGN KEY (Student_Id) REFERENCES Student(Student_Id),
+FOREIGN KEY (Sub_Id) REFERENCES Subject(Sub_Id),
+FOREIGN KEY (Sem_Id) REFERENCES Semester(Sem_Id)
+
+
+);
+  
