@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.wrapper {
+  position: relative;
+}
+
+.box1 {
+  position: relative;
+  z-index: 1;
+  color:aliceblue;
+  border: solid;
+  background-color:blue;
+  height: 100px;
+  margin: 50px;
+}
+
+.box2 {
+  position: absolute;
+  left:50x;
+  z-index: 2;
+  background: pink;
+  width: 20%;
+  top: -25px;
+  height: 120px;
+  opacity: 0.9;
+}
+
+.box3 {
+  position: absolute;
+  z-index: 3;
+  background: cyan;
+  width: 70%;
+  left: 40px;
+  top: 60px;
+}
+.overflow_x{
+  width:200px;
+  height:100px;
+  
+  background-color:chartreuse;
+  overflow-y:auto;/* visible,hidden,auto*/
+} 
+
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="box1">Box 1 - has z-index: 1</div>
+  <div class="box2">Box 2 - has z-index: 2</div>
+  <div class="box3">Box 3 - has z-index: 3 </div>
+</div>
+<div>
+  <p class="overflow_x">
+    The overflow-x property specifies whether to clip the content, add a scroll bar, or display overflow content of a block-level element, when it overflows at the left and right edges. Tip: Use the overflow-y property to determine clipping at the top and bottom edges.
+  </p>
+  
+</div>
+</body>
+</html>
