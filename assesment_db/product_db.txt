@@ -30,3 +30,12 @@ alter table category add parent_id int;
 alter table category
 add constraint fk_category
 foreign key (cat_id) references category(cat_id)
+
+
+-- simple query to check whether its is working or not!
+
+SELECT 
+product.p_id,product.p_name,category.cat_name,category.cat_id,category.parent_id,brand.b_name,brand.b_id
+ FRom product INNER JOIN category 
+ on category.cat_id=product.cat_id 
+ INNER JOIN brand on brand.b_id=product.b_id;
