@@ -51,3 +51,10 @@ select p_name,cat_id from product where cat_id=20;
 
 -- 3.given a catgeory id ,list all the products
 select cat_id,p_name from product where cat_id=30;
+
+
+-- 4.lista all products and filtrer based on cat_name
+
+-- select product.p_name ,category.cat_name from category inner join  product on product.cat_id=category.cat_id where category.cat_name='android';
+
+select product.p_name ,category.cat_name from product left join  category on product.cat_id=category.cat_id where category.cat_name='android';
