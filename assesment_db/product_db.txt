@@ -67,3 +67,7 @@ select category.cat_name,product.p_name from category left join product on produ
 
 --6.list all products and print brand name
 select product.p_name,brand.b_name from product left join brand on product.b_id=brand.b_id;
+
+-- level-2
+--1.list all sub categories under a category  based on cat_id
+select  cat_name as sub_cat,parent_id,cat_id from category where parent_id='40'
