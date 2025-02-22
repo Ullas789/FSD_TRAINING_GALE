@@ -25,3 +25,8 @@ CREATE TABLE Product (
     CONSTRAINT fk_brand FOREIGN KEY (b_id)
     REFERENCES brand(b_id)
 );
+
+alter table category add parent_id int;
+alter table category
+add constraint fk_category
+foreign key (cat_id) references category(cat_id)
