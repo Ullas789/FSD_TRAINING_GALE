@@ -1,0 +1,61 @@
+employee, Department  and Location
+
+Department:
+    d_id:varchar
+    d_name:varchar
+    l_id:int (Fk)
+Employee:
+    eid:varchar
+    e_name:varchar
+    email:varchar
+    designation:varchar
+    salary:real
+    experience:small int
+    d_id:int (FK)
+
+location:
+    l_id:int
+    l_name :varchar
+    l_city: varchar
+    l_state :varchar
+    l_country :varchar
+
+
+---------creating table
+
+create table Location(
+l_id  SERIAL PRIMARY KEY,
+l_name varchar,
+l_city varchar,
+l_state varchar,
+l_country varchar
+
+);
+
+CREATE TABLE departments (
+    department_id SERIAL PRIMARY KEY,
+    department_name VARCHAR(100),
+    l_id int,
+     CONSTRAINT fk_location FOREIGN KEY (l_id) 
+    REFERENCES LOCATION(l_id)
+);
+
+
+CREATE TABLE employees (
+    employee_id SERIAL PRIMARY KEY,
+    employee_name VARCHAR(100),
+    email varchar,
+    designation varchar,
+    salary real,
+    department_id INT,
+    experience smallint,
+      
+    CONSTRAINT fk_department FOREIGN KEY (department_id)
+    REFERENCES departments(department_id)
+);
+
+
+
+
+
+
