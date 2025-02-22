@@ -64,3 +64,6 @@ select product.p_name ,category.cat_name from product left join  category on pro
 -- select category.cat_name,product.p_name from product right join category on product.cat_id=category.cat_id;
 select category.cat_name,product.p_name from category left join product on product.cat_id=category.cat_id;
 
+
+--6.list all products and print brand name
+select product.p_name,brand.b_name from product left join brand on product.b_id=brand.b_id;
