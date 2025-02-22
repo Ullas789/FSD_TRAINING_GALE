@@ -1,0 +1,9 @@
+cat_id,cat_name,parent_id
+10,mobile,40
+20,android,10
+30,ios,10
+40,electronics,77
+50,laptop,40
+60,windows,50
+70,washing  machine,40
+77,new-cat,77777
