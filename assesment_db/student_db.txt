@@ -31,3 +31,6 @@ FOREIGN KEY (Sem_Id) REFERENCES Semester(Sem_Id)
 
 );
   
+-- Get all distinct sem of student
+select  DISTINCT current_sem ,name from student;
+
