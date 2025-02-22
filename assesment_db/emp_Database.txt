@@ -59,6 +59,9 @@ CREATE TABLE employees (
 
 select employees.employee_id,employees.employee_name,employees.email,employees.designation,employees.salary,employees.department_id,employees.experience , departments.department_name from employees  Inner join departments on departments.department_id=employees.department_id
 
+-------query to print eid,e_name,email,dep_name,city_state_country
+select employees.employee_id,employees.employee_name,employees.email,departments.department_name ,location.l_city || '_' || location.l_state|| '_'||location.l_country AS city_state_country from employees INNER join departments on departments.department_id=employees.department_id inner join location on location.l_id=departments.l_id
+
 
 
 
