@@ -55,6 +55,14 @@ CREATE TABLE employees (
 );
 
 
+CREATE TABLE CONTACT_DETAILS(
+number int UNIQUE,
+address varchar,
+emp_id int,
+FOREIGN KEY (emp_id) REFERENCES employees(employee_id)
+
+);
+
 -------query to print the emplyoee details and  department details
 
 select employees.employee_id,employees.employee_name,employees.email,employees.designation,employees.salary,employees.department_id,employees.experience , departments.department_name from employees  Inner join departments on departments.department_id=employees.department_id
