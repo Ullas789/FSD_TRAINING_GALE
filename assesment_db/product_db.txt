@@ -1,0 +1,27 @@
+
+-- product , category and brand DATABASE
+
+
+create table Brand(
+b_id  SERIAL PRIMARY KEY,
+b_name varchar
+);
+
+CREATE TABLE category (
+    cat_id SERIAL PRIMARY KEY,
+    cat_name VARCHAR,
+    
+  	
+);
+
+
+CREATE TABLE Product (
+    p_id SERIAL PRIMARY KEY,
+    p_name VARCHAR(100),
+   	cat_id int,
+    b_id int,
+    CONSTRAINT fk_category FOREIGN KEY (cat_id)
+	REFERENCES category(cat_id),
+    CONSTRAINT fk_brand FOREIGN KEY (b_id)
+    REFERENCES brand(b_id)
+);
