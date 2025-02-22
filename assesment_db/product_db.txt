@@ -82,3 +82,9 @@ select p.cat_name as parent_cat,c.cat_name from category c inner join category p
 SELECT p.cat_name AS parent_cat,c.cat_name AS sub_cat 
 FROM category c,category p 
 WHERE c.parent_id=p.cat_id
+
+
+--4.list all sub cat under a category based on cat_name
+SELECT p.cat_name AS parent_cat,c.cat_name AS sub_cat 
+FROM category c,category p 
+WHERE c.parent_id=p.cat_id and p.cat_name='electronics'
