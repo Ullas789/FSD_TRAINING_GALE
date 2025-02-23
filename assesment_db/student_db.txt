@@ -74,3 +74,15 @@ select student.name ,AVG (marks.marks)
  and semester.sem_id=marks.sem_id 
  and student.usn ='vv003' AND marks.sem_id = 1 
  GROUP BY student.name;
+
+
+
+-- get total percentage of student of all sem
+
+select marks.student_id ,AVG (marks.marks)
+ from student,marks ,semester 
+ where student.student_id=marks.student_id 
+ and semester.sem_id=marks.sem_id  
+ GROUP BY marks.student_id;
+
+
