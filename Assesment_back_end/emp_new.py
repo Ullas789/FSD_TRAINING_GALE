@@ -1,3 +1,6 @@
+
+# contact_details belongs to an employee
+
 d={}
 def dict(contact,person):
     for key in d:
