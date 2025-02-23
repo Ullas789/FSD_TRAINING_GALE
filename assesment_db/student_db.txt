@@ -58,3 +58,10 @@ select student.name,marks.marks,semester.sem as latest_sem
  and semester.sem_id=marks.sem_id 
  and semester.sem=student.current_sem ;
 
+-- get the aggregarate or percentange of marks for a student in a sem
+select student.name ,AVG (marks.marks)
+ from student,marks ,semester 
+ where student.student_id=marks.student_id 
+ and semester.sem_id=marks.sem_id 
+ and student.usn ='vv003' AND marks.sem_id = 1 
+ GROUP BY student.name;
