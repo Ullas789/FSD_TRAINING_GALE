@@ -62,31 +62,26 @@ emp_id int,
 FOREIGN KEY (emp_id) REFERENCES employees(employee_id)
 
 );
+-- list all the employess with contatc number
+select employees.employee_name,contact_details.number 
+from employees left join contact_details 
+on contact_details.emp_id=employees.employee_id ;
 
--------query to print the emplyoee details and  department details
+-- list all the contact number of particular employeee 
+SELECT employees.employee_name,contact_details.number from employees inner join contact_details on 
+contact_details.emp_id=employees.employee_id and employees.employee_name='e1'
 
+--list all emp given a contact number
+
+select  employees.employee_name,contact_details.number from employees inner join contact_details on 
+contact_details.emp_id=employees.employee_id and contact_details.number=789
 
 SELECT employees.employee_id,employees.employee_name,employees.email,employees.designation,employees.salary,employees.department_id,employees.experience , departments.department_name 
 FROM employees  INNER JOIN departments 
 on departments.department_id=employees.department_id
 
--------query to print eid,e_name,email,dep_name,city_state_country
+
 SELECT 
 employees.employee_id,employees.employee_name,employees.email,departments.department_name ,location.l_city || '_' || location.l_state|| '_'||location.l_country AS city_state_country 
 FROM employees INNER JOIN departments on departments.department_id=employees.department_id 
 INNER JOIN location on location.l_id=departments.l_id
-
-
-
--- list all the employess with contatc number
-select employees.employee_name,contact_details.number 
-from employees,contact_details 
-where contact_details.emp_id=employees.employee_id ;
-
-
--- list all the contact number of particular employeee 
-SELECT employees.employee_name,contact_details.number from employees,contact_details where 
-contact_details.emp_id=employees.employee_id and employees.employee_name='e1'
-
-
-
