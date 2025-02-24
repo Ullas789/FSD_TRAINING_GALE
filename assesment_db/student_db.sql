@@ -42,38 +42,39 @@ from student
 where current_sem='1';
 
 
+-- get all marks of a student given usn for the latest seem
+
+
+
+select student.name,marks.marks,semester.sem as latest_sem
+ from student right join marks 
+ on student.student_id=marks.student_id inner join semester 
+ on semester.sem_id=marks.sem_id 
+ and semester.sem=student.current_sem  and student.usn ='vv006';
+
+
+
+
 -- get all marks of a student given usn for a particular subject
+
+
 select student.usn ,student.name,subject.sub_name ,marks.marks 
-from student ,marks ,subject 
-where student.student_id=marks.student_id 
-and marks.sub_id=subject.sub_id 
+from student left join marks 
+on  student.student_id=marks.student_id inner join subject 
+on marks.sub_id=subject.sub_id 
 and student.usn='vv003' 
 and subject.sub_name='DS';
 
+ 
 
--- get all marks of a student given usn for the latest seem
-select student.name,marks.marks,semester.sem as latest_sem
+-- get the total percentage of marks for a student in each sem
+
+select marks.sem_id ,AVG (marks.marks)
  from student,marks ,semester 
  where student.student_id=marks.student_id 
  and semester.sem_id=marks.sem_id 
- and semester.sem=student.current_sem ;
-
-
-
--- get all marks of a student given usn for the latest seem
-select student.name,marks.marks,semester.sem as latest_sem
- from student,marks ,semester 
- where student.student_id=marks.student_id 
- and semester.sem_id=marks.sem_id 
- and semester.sem=student.current_sem  and student.usn ='vv003';
-
--- get the aggregarate or percentange of marks for a student in a sem
-select student.name ,AVG (marks.marks)
- from student,marks ,semester 
- where student.student_id=marks.student_id 
- and semester.sem_id=marks.sem_id 
- and student.usn ='vv003' AND marks.sem_id = 1 
- GROUP BY student.name;
+ and student.usn ='vv003' 
+ GROUP BY marks.sem_id;
 
 
 
@@ -84,5 +85,6 @@ select marks.student_id ,AVG (marks.marks)
  where student.student_id=marks.student_id 
  and semester.sem_id=marks.sem_id  
  GROUP BY marks.student_id;
+
 
 
